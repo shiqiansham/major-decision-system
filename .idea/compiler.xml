@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="services-qwen" />
+        <module name="utils" />
+        <module name="services-carousel" />
+        <module name="services-demo" />
+        <module name="services-user" />
+        <module name="services-news" />
+        <module name="model" />
+        <module name="services-meeting" />
+        <module name="services-file" />
+        <module name="gateway" />
+        <module name="services-proposal" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="gateway" options="-parameters" />
+      <module name="model" options="-parameters" />
+      <module name="services-carousel" options="-parameters" />
+      <module name="services-demo" options="-parameters" />
+      <module name="services-file" options="-parameters" />
+      <module name="services-meeting" options="-parameters" />
+      <module name="services-news" options="-parameters" />
+      <module name="services-proposal" options="-parameters" />
+      <module name="services-qwen" options="-parameters" />
+      <module name="services-user" options="-parameters" />
+      <module name="utils" options="-parameters" />
+    </option>
+  </component>
+</project>

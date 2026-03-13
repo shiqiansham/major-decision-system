@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统常见问题解答(FAQ)</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+        }
+        
+        body {
+            background-color: #f0f5ff;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        
+        .version-info {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+            padding: 12px 15px;
+            border-radius: 5px;
+            margin: 30px 0 20px;
+            position: relative;
+            font-size: 1.4em;
+        }
+        
+        .section-title::before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 10px;
+            width: 10px;
+            height: calc(100% - 20px);
+            background: #2980b9;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .toc {
+            background-color: #e8f4ff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 5px solid #3498db;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .toc h2 {
+            color: #2980b9;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        
+        .toc li {
+            margin-bottom: 8px;
+        }
+        
+        .toc a {
+            color: #2c3e50;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: 1px solid #dce6ef;
+        }
+        
+        .toc a:hover {
+            background: #3498db;
+            color: white;
+            transform: translateX(5px);
+            border-color: #3498db;
+        }
+        
+        .qa-container {
+            margin-bottom: 30px;
+        }
+        
+        .question {
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 20px 0 10px;
+            font-size: 1.1em;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .question::before {
+            content: "Q:";
+            color: #e74c3c;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .answer {
+            padding-left: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .answer ul {
+            margin: 10px 0 15px 20px;
+        }
+        
+        .answer li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .answer li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        th, td {
+            border: 1px solid #dfe6e9;
+            padding: 14px 16px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .contacts-section {
+            background-color: #e8f8ff;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 40px 0;
+            border-left: 5px solid #3498db;
+        }
+        
+        .contacts-section h3 {
+            color: #2980b9;
+            margin-bottom: 15px;
+        }
+        
+        .process-steps {
+            counter-reset: step;
+            margin: 20px 0;
+        }
+        
+        .step {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 20px;
+        }
+        
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #7f8c8d;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 0.9em;
+        }
+        
+        .highlight {
+            background: #fff8e1;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .toc ul {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            th, td {
+                padding: 10px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>系统常见问题解答(FAQ)</h1>
+            <div class="version-info">
+                <p><strong>版本：</strong> 1.0</p>
+                <p><strong>日期：</strong> 2025.6.29</p>
+                <p><strong>编制：</strong> 韩伟瑞</p>
+                <p><strong>审核：</strong> 韩伟瑞</p>
+            </div>
+        </header>
+        
+        <div class="toc">
+            <h2>目录</h2>
+            <ul>
+                <li><a href="#section1">1. 登录与认证问题</a></li>
+                <li><a href="#section2">2. 提案管理问题</a></li>
+                <li><a href="#section3">3. 会议管理问题</a></li>
+                <li><a href="#section4">4. 系统性能问题</a></li>
+                <li><a href="#section5">5. 数据统计问题</a></li>
+                <li><a href="#section6">6. 权限管理问题</a></li>
+                <li><a href="#section7">7. 文件管理问题</a></li>
+                <li><a href="#section8">8. 技术支持与帮助</a></li>
+            </ul>
+        </div>
+        
+        <!-- 1. 登录与认证问题 -->
+        <h2 class="section-title" id="section1">1. 登录与认证问题</h2>
+        <div class="qa-container">
+            <div class="question">登录时提示"用户名或密码错误"怎么办？</div>
+            <div class="answer">
+                <ul>
+                    <li>请确认用户名和密码输入正确，注意大小写。</li>
+                    <li>检查是否启用了大写锁定键 (Caps Lock)。</li>
+                    <li>如果多次登录失败，请联系系统管理员重置密码。</li>
+                    <li>确保网络连接正常。</li>
+                </ul>
+            </div>
+            
+            <div class="question">登录后页面显示空白或加载失败？</div>
+            <div class="answer">
+                <ul>
+                    <li>清除浏览器缓存和 Cookie 后重新登录。</li>
+                    <li>检查浏览器是否支持（推荐使用 Chrome、Firefox、Edge 最新版本）。</li>
+                    <li>确认网络连接稳定。</li>
+                    <li>如问题持续，请联系技术支持。</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 2. 提案管理问题 -->
+        <h2 class="section-title" id="section2">2. 提案管理问题</h2>
+        <div class="qa-container">
+            <div class="question">提交提案时提示"提案创建失败"？</div>
+            <div class="answer">
+                <ul>
+                    <li>检查必填字段是否完整填写。</li>
+                    <li>确认提案开始时间不能晚于结束时间。</li>
+                    <li>检查附件大小是否超过限制（建议单个文件不超过 10MB）。</li>
+                    <li>确认提案类型选择正确（重大决策、重要人事任免、重大项目安排、大额资金运作）。</li>
+                </ul>
+            </div>
+            
+            <div class="question">无法查看提案详情或附件？</div>
+            <div class="answer">
+                <ul>
+                    <li>确认您有相应的查看权限。</li>
+                    <li>检查文件是否已被删除或移动。</li>
+                    <li>尝试刷新页面或重新登录。</li>
+                    <li>如果是 PDF 文件无法预览，请检查浏览器 PDF 插件是否正常。</li>
+                </ul>
+            </div>
+            
+            <div class="question">提案审批流程卡住了怎么办？</div>
+            <div class="answer">
+                <ul>
+                    <li>检查当前审批环节和审批人。</li>
+                    <li>确认审批人是否已收到通知。</li>
+                    <li>联系相关部门确认审批进度。</li>
+                    <li>如有紧急情况，可联系系统管理员协助处理。</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 3. 会议管理问题 -->
+        <h2 class="section-title" id="section3">3. 会议管理问题</h2>
+        <div class="qa-container">
+            <div class="question">创建会议时提示权限不足？</div>
+            <div class="answer">
+                <ul>
+                    <li>确认您的账户具有会议创建权限。</li>
+                    <li>检查所属部门是否正确设置。</li>
+                    <li>联系部门管理员确认权限配置。</li>
+                </ul>
+            </div>
+            
+            <div class="question">会议结束后无法生成会议纪要？</div>
+            <div class="answer">
+                <ul>
+                    <li>确认您是会议发起人（只有发起人可以结束会议）。</li>
+                    <li>检查会议状态是否为"进行中"。</li>
+                    <li>确保会议内容已保存。</li>
+                    <li>如问题持续，请联系技术支持。</li>
+                </ul>
+            </div>
+            
+            <div class="question">会议邀请发送失败？</div>
+            <div class="answer">
+                <ul>
+                    <li>检查参会人员邮箱地址是否正确。</li>
+                    <li>确认邮件服务是否正常。</li>
+                    <li>检查会议时间设置是否合理。</li>
+                    <li>尝试重新发送邀请。</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 4. 系统性能问题 -->
+        <h2 class="section-title" id="section4">4. 系统性能问题</h2>
+        <div class="qa-container">
+            <div class="question">系统响应缓慢或超时？</div>
+            <div class="answer">
+                <ul>
+                    <li>检查网络连接速度。</li>
+                    <li>避免在系统高峰期（上午 9-11 点，下午 2-4 点）进行大量操作。</li>
+                    <li>关闭不必要的浏览器标签页。</li>
+                    <li>清理浏览器缓存。</li>
+                    <li>如问题持续，请联系技术支持。</li>
+                </ul>
+            </div>
+            
+            <div class="question">文件上传失败或进度卡住？</div>
+            <div class="answer">
+                <ul>
+                    <li>检查文件格式是否支持（支持 PDF、DOC、DOCX、XLS、XLSX 等）。</li>
+                    <li>确认文件大小不超过限制。</li>
+                    <li>检查网络连接稳定性。</li>
+                    <li>尝试分批上传大文件。</li>
+                </ul>
+            </div>
+            
+            <div class="question">页面加载缓慢或显示异常？</div>
+            <div class="answer">
+                <ul>
+                    <li>刷新页面或按 <span class="highlight">Ctrl+F5</span> 强制刷新。</li>
+                    <li>清除浏览器缓存和临时文件。</li>
+                    <li>检查浏览器版本是否过旧。</li>
+                    <li>尝试使用无痕模式访问。</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 5. 数据统计问题 -->
+        <h2 class="section-title" id="section5">5. 数据统计问题</h2>
+        <div class="qa-container">
+            <div class="question">统计数据显示不准确？</div>
+            <div class="answer">
+                <ul>
+                    <li>数据统计存在延迟，请等待 5-10 分钟后刷新。</li>
+                    <li>检查筛选条件是否设置正确。</li>
+                    <li>确认时间范围选择是否合适。</li>
+                    <li>如数据长期不更新，请联系技术支持。</li>
+                </ul>
+            </div>
+            
+            <div class="question">导出数据失败？</div>
+            <div class="answer">
+                <ul>
+                    <li>检查数据量是否过大（建议单次导出不超过 1000 条）。</li>
+                    <li>确认导出格式选择正确。</li>
+                    <li>检查浏览器下载设置。</li>
+                    <li>尝试分批导出数据。</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 6. 权限管理问题 -->
+        <h2 class="section-title" id="section6">6. 权限管理问题</h2>
+        <div class="qa-container">
+            <div class="question">无法访问某些功能模块？</div>
+            <div class="answer">
+                <ul>
+                    <li>确认您的用户角色和权限级别。</li>
+                    <li>检查是否需要特定部门权限。</li>
+                    <li>联系系统管理员确认权限配置。</li>
+                    <li>部分功能可能需要管理员权限。</li>
+                </ul>
+            </div>
+            
+            <div class="question">无法查看其他部门的提案？</div>
+            <div class="answer">
+                <ul>
+                    <li>确认您是否有跨部门查看权限。</li>
+                    <li>检查提案的公开级别设置。</li>
+                    <li>联系相关部门申请查看权限。</li>
+                    <li>如需要，可申请临时访问权限。</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 7. 文件管理问题 -->
+        <h2 class="section-title" id="section7">7. 文件管理问题</h2>
+        <div class="qa-container">
+            <div class="question">附件下载失败？</div>
+            <div class="answer">
+                <ul>
+                    <li>检查文件是否存在。</li>
+                    <li>确认您有下载权限。</li>
+                    <li>检查网络连接稳定性。</li>
+                    <li>尝试右键另存为下载。</li>
+                </ul>
+            </div>
+            
+            <div class="question">上传的文件无法打开？</div>
+            <div class="answer">
+                <ul>
+                    <li>检查文件格式是否正确。</li>
+                    <li>确认文件没有损坏。</li>
+                    <li>检查文件大小是否合理。</li>
+                    <li>尝试重新上传文件。</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 8. 技术支持与帮助 -->
+        <h2 class="section-title" id="section8">8. 技术支持与帮助</h2>
+        <div class="contacts-section">
+            <h3>联系信息</h3>
+            <table>
+                <tr>
+                    <th>支持类型</th>
+                    <th>联系方式</th>
+                </tr>
+                <tr>
+                    <td>技术支持邮箱</td>
+                    <td>support@cupk.edu.cn</td>
+                </tr>
+                <tr>
+                    <td>系统管理员邮箱</td>
+                    <td>admin@cupk.edu.cn</td>
+                </tr>
+                <tr>
+                    <td>服务热线</td>
+                    <td>0990-6633000（工作日 9:00–17:00）</td>
+                </tr>
+            </table>
+            
+            <h3>问题反馈流程</h3>
+            <div class="process-steps">
+                <div class="step">
+                    <strong>查阅本 FAQ 文档</strong> - 首先在本文档中搜索相关问题。
+                </div>
+                <div class="step">
+                    <strong>尝试基础排查</strong> - 按照 FAQ 中的解决方案进行尝试。
+                </div>
+                <div class="step">
+                    <strong>联系技术支持</strong> - 如果问题仍未解决，请通过以下方式联系：
+                    <ul>
+                        <li>发送邮件到技术支持邮箱 (<a href="mailto:support@cupk.edu.cn">support@cupk.edu.cn</a>)，详细描述问题</li>
+                        <li>拨打服务热线（工作时间内）</li>
+                        <li>通过系统内置反馈功能提交问题</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>问题反馈所需信息</h3>
+            <ul>
+                <li>问题发生的具体时间</li>
+                <li>问题的详细描述和截图（如有可能）</li>
+                <li>您的用户名和所属部门</li>
+                <li>使用的浏览器类型和版本</li>
+                <li>操作系统信息 (如 Windows 10, macOS Monterey 等)</li>
+                <li>问题复现的具体步骤</li>
+            </ul>
+        </div>
+        
+        <footer>
+            <p>技术支持中心提供维护服务 | 最后更新日期: 2023年10月27日</p>
+        </footer>
+    </div>
+</body>
+</html>
